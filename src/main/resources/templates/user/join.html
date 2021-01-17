@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form th:action="@{/auth/join}" method="post">
+    <table border="2px">
+        <tr>
+            <td>username</td>
+            <td><input tpye="text" name="username" id="username"></td>
+        </tr>
+        <tr>
+            <td>password</td>
+            <td><input type="password" name="password" id="password"></td>
+        </tr>
+        <tr>
+            <td>email</td>
+            <td><input tpye="text" name="email" id="email"></td>
+        </tr>
+    </table>
+    <button type="submit" value="가입">가입</button>
+</form>
+</body>
+</html>
