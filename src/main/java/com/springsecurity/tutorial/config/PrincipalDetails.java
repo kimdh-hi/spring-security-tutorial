@@ -8,12 +8,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.util.ArrayList;
 import java.util.Collection;
 
-public class UserDetailsImpl implements UserDetails {
+public class PrincipalDetails implements UserDetails {
 
     @Autowired
     private User user;
 
-    public UserDetailsImpl(User user) {
+    public PrincipalDetails(User user) {
         this.user = user;
     }
 

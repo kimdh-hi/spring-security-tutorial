@@ -8,7 +8,7 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
-public class UserDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
+public class PrincipalDetailsService implements org.springframework.security.core.userdetails.UserDetailsService {
 
     @Autowired
     private UserRepository userRepository;
@@ -21,6 +21,6 @@ public class UserDetailsService implements org.springframework.security.core.use
                 }
         );
         // 시큐리티 세션에 유저정보 저장
-        return new UserDetailsImpl(user);
+        return new PrincipalDetails(user);
     }
 }

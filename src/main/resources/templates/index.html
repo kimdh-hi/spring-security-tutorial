@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-    <h1>Index page</h1>
-    <button><a href="/auth/join">회원가입</a></button>
-    <button><a href="/auth/login">로그인</a></button>
-    <button><a href="/logout">로그아웃</a></button>
 
-<div sec:authorize="isAuthenticated()">
-    <h1 th:text="인증됨"></h1>
-</div>
+<head th:replace="fragments/common :: head('홈')"></head>
+
+<body>
+
+    <nav th:replace="fragments/common :: navigation"></nav>
+    <div class="container">
+        <main class="container">
+            <div class="starter-template text-center py-5 px-3">
+                <h1>Bootstrap starter template</h1>
+                <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this
+                    text
+                    and a mostly barebones HTML document.</p>
+            </div>
+        </main><!-- /.container -->
+    </div>
 </body>
+
 </html>
