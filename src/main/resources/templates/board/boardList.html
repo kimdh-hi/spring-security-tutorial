@@ -4,20 +4,34 @@
 <head th:replace="fragments/common :: head('회원가입')"></head>
 
 <body>
-
     <nav th:replace="fragments/common :: navigation"></nav>
+    <h1>글 목록</h1>
 
-    <div class="container">
-        <div class="form-group">
-            <label for="title">Title:</label>
-            <input type="text" class="form-control" id="title" name="title">
+    <!-- Board List -->
+    <main class="container">
+        <div th:each="board : ${boards}" class="bg-light p-5 rounded">
+            <h1 th:text="${board.title}"></h1>
+            <h4 th:text="${board.content}"></h4>
+            <a class="btn btn-sm btn-primary" th:href="@{/board(id=${board.id})}" role="button">편집> &raquo;</a>
         </div>
-    </div>
+
+        <!-- Pagination-->
+        <ul class="pagination">
+            <li class="page-item" th:classappend="${boards.pageable.pageNumber == 0} ? 'disabled'">
+                <a class="page-link" th:href="@{/board/list(page=${boards.pageable.pageNumber - 1})}">
+                    Previous
+                </a>
+            </li>
+            <li class="page-item" th:each="i : ${#numbers.sequence(startPage,endPage-1)}">
+                <a class="page-link" th:text="${i+1}" th:href="@{/board/list(page=${i})}">1</a>
+            </li>
+            <li class="page-item" th:classappend="${boards.pageable.pageNumber + 1 == boards.totalPages} ? 'disabled'">
+                <a class="page-link" th:href="@{/board/list(page=${boards.pageable.pageNumber + 1})}">
+                    Next
+                </a>
+            </li>
+        </ul>
+    </main>
 </body>
-<script>
-    $(document).ready(function () {
-        $('#summernote').summernote();
-    });
-</script>
 
 </html>
